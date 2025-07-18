@@ -1,0 +1,101 @@
+.services-hero {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* adjust as needed */
+  background: 
+    url('/images/service.jpeg') /* ↓ your image path */ 
+    center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* red tint overlay */
+.services-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(199, 20, 26, 0.6);
+}
+
+/* heading */
+.services-hero h1 {
+  position: relative; /* above the overlay */
+  margin: 0;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 700;
+  z-index: 1;
+  text-transform: none;
+  text-align: center;
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .services-hero {
+    height: 40vh;
+  }
+  .services-hero h1 {
+    font-size: 2.5rem;
+  }
+}
+/* ===== Our Services Section ===== */
+.services-section {
+  background-color: #fff;
+  padding: 4rem 0;
+}
+
+/* Section title */
+.services-section .section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 2.5rem;
+}
+
+/* Grid container */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Individual card */
+.service-card {
+  flex: 1 1 22%;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* Replace image with icon */
+.service-icon {
+  font-size: 3rem;          /* match approx icon size */
+  color: #c7141a;           /* brand red */
+  margin-bottom: 1rem;
+}
+
+/* Card heading */
+.service-card h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .service-card {
+    flex: 1 1 45%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-card {
+    flex: 1 1 100%;
+  }
+}

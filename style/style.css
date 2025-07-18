@@ -1,0 +1,615 @@
+/* reset & globals */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* container helper */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  position: relative; /* ADD THIS */
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #8c0000;
+  text-decoration: none;
+}
+.logo .logo-highlight {
+  color: #d9a02b;
+}
+
+/* nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.nav-links li {
+  margin-left: 2rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  position: relative;
+}
+.nav-links a.active {
+  color: #c7141a;
+}
+
+/* Hamburger menu style */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  height: calc(100vh - 80px); /* roughly full‑screen minus nav height */
+}
+.hero-image,
+.hero-content {
+  flex: 1 1 50%;
+}
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* right side */
+.hero-content {
+  background: #c7141a;
+  color: #fff;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-content h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+/* BUTTON */
+.btn {
+  display: inline-block;
+  min-width: 180px; /* ensure consistent width */
+  padding: 0.75rem 1.5rem; /* vertical / horizontal padding */
+  background: #d9a02b; /* gold */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover state */
+.btn:hover {
+  background: #c79f1f; /* slightly darker gold */
+  transform: scale(1.05); /* subtle grow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .hero {
+    flex-direction: column;
+  }
+  .hero-content {
+    padding: 2rem;
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===== Top Call Bar ===== */
+.top-bar {
+  background-color: #000; /* black background */
+  color: #fff;
+  padding: 1%; /* white text */
+}
+
+.top-bar .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+.top-bar i {
+  color: #c7141a; /* red phone icon */
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+.top-bar span {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* ===== Info Section ===== */
+.info-section {
+  background-color: #fff;
+  padding: 4rem 0;
+}
+.info-section .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.heading-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.heading-wrapper .line {
+  width: 200px;
+  height: 4px;
+  background-color: #c7141a; /* red accent line */
+  margin-right: 1rem;
+}
+.heading-wrapper h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #111;
+}
+.info-section p {
+  margin-left: 14%;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Scroll-to-Top Button ===== */
+.scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 42px;
+  height: 42px;
+  background-color: #d9a02b; /* gold */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.scroll-top i {
+  font-size: 1rem;
+}
+.scroll-top:hover {
+  background-color: #c79f1f; /* darker gold */
+  transform: translateY(-3px);
+}
+/* ===== Features Section ===== */
+.features-section {
+  background-color: #fff;
+  padding: 4rem 0;
+}
+
+.features-grid {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  flex: 1 1 30%;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.feature-icon {
+  font-size: 3rem; /* icon size */
+  color: #c7141a; /* brand red */
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .features-grid {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .feature-card {
+    flex: none;
+    padding: 0;
+  }
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+  background-color: #c7141a; /* brand red */
+  padding: 4rem 0;
+}
+
+.cta-section .container {
+  text-align: center;
+}
+
+.cta-text {
+  color: #fff;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+/* Gold button, Title Case */
+.btn-cta {
+  display: inline-block;
+  background-color: #d9a02b; /* gold */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-transform: none; /* keep Title Case */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-cta:hover {
+  background-color: #c79f1f; /* darker gold */
+  transform: translateY(-2px);
+}
+/* ===== Footer ===== */
+.site-footer {
+  background-color: #000;
+  color: #fff;
+}
+
+/* top part: 3 columns */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 3rem 0 2rem;
+}
+
+/* each column */
+.footer-col {
+  flex: 1 1 30%;
+  min-width: 200px;
+}
+
+/* brand column */
+.footer-brand p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* nav & contact lists */
+.footer-nav ul,
+.footer-contact ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-nav li,
+.footer-contact li {
+  margin-bottom: 0.75rem;
+}
+.footer-nav a,
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.footer-nav a:hover,
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* bottom bar */
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding: 1rem 0;
+  text-align: center;
+}
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #ccc;
+}
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* Media Queries for Index Page                            */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+/* 1. Medium desktops / large tablets ----------------------*/
+@media (max-width: 1200px) {
+  /* Hero */
+  .hero-content {
+    padding: 3rem;
+  }
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  /* Info section accent line */
+  .heading-wrapper .line {
+    width: 60px;
+  }
+}
+
+/* 2. Tablets / small laptops ------------------------------*/
+@media (max-width: 992px) {
+  /* NAVBAR: stack logo + nav */
+  .navbar .container {
+    flex-direction: column;
+  }
+  .nav-links {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .nav-links li {
+    margin: 0.5rem 1rem;
+  }
+
+  /* HERO: full‑width stacking */
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+  .hero-image,
+  .hero-content {
+    flex: 1 1 100%;
+  }
+  .hero-content {
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .hero-content h1 {
+    font-size: 2.75rem;
+  }
+  .hero-content p {
+    margin: 0 auto 1.5rem;
+    max-width: 90%;
+  }
+
+  /* CALL BAR */
+  .top-bar span {
+    font-size: 1rem;
+  }
+
+  /* INFO SECTION: center text */
+  .heading-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .heading-wrapper .line {
+    margin-bottom: 1rem;
+  }
+  .heading-wrapper h2 {
+    text-align: center;
+    font-size: 1.75rem;
+  }
+  .info-section p {
+    margin: 0 auto 1.5rem;
+    max-width: 90%;
+  }
+
+  /* FEATURES: single‑column stack */
+  .features-grid {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  .feature-card {
+    padding: 0;
+    flex: 1 1 100%;
+  }
+
+  /* CTA */
+  .cta-text {
+    font-size: 1.125rem;
+  }
+  .btn-cta {
+    padding: 0.75rem 1.25rem;
+  }
+
+  /* FOOTER: columns stack */
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .footer-col {
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+
+/* 3. Mobile landscape / large phones ---------------------*/
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar .container {
+    flex-direction: row;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 999;
+    border-top: 1px solid #eee;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 85%;
+    padding: 0.5rem 1rem;
+    text-align: right;
+  }
+  /* HERO */
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  /* BUTTONS */
+  .btn {
+    min-width: 150px;
+    padding: 0.6rem 1.2rem;
+  }
+  .btn-cta {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* INFO */
+  .heading-wrapper .line {
+    width: 50px;
+  }
+  .heading-wrapper h2 {
+    font-size: 1.5rem;
+  }
+  .info-section p {
+    font-size: 0.95rem;
+  }
+
+  /* FEATURES: icons & text */
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+  .feature-card h3 {
+    font-size: 1.5rem;
+  }
+
+  /* SCROLL‑TO‑TOP */
+  .scroll-top {
+    width: 36px;
+    height: 36px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/* 4. Mobile portrait / small phones -----------------------*/
+@media (max-width: 576px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  /* NAVBAR font‑size */
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  /* HERO */
+  .hero-content {
+    padding: 1.5rem;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  /* CALL BAR */
+  .top-bar span {
+    font-size: 0.85rem;
+  }
+
+  /* INFO */
+  .info-section {
+    padding: 2rem 0;
+  }
+  .heading-wrapper .line {
+    width: 40px;
+  }
+  .heading-wrapper h2 {
+    font-size: 1.25rem;
+  }
+  .info-section p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* FEATURES */
+  .feature-icon {
+    font-size: 2rem;
+  }
+  .feature-card h3 {
+    font-size: 1.125rem;
+  }
+
+  /* CTA */
+  .cta-text {
+    font-size: 1rem;
+  }
+
+  /* FOOTER bottom text */
+  .footer-bottom p {
+    font-size: 0.75rem;
+  }
+}
